@@ -24,4 +24,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: docker run -d -p 8545:8545 trufflesuite/ganache-cli:latest
       - run: docker ps
-      - run: curl -s -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545
+      - run: curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545

@@ -9,7 +9,7 @@ services:
       - "8545:8545"
     entrypoint:
       - node
-      - ./build/cli.node.js
+      - /app/ganache-core.docker.cli.js
   # ipfs:
   #   env_file:
   #     - .env

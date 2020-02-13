@@ -7,14 +7,6 @@ services:
     image: trufflesuite/ganache-cli:latest
     ports:
       - "8545:8545"
-    entrypoint:
-      - node
-      - ./build/cli.node.js
-      - --deterministic
-      - --mnemonic
-      - "minimum symptom minute gloom tragic situate silver mechanic salad amused elite beef"
-      - --networkId
-      - "5777"
   # ipfs:
   #   env_file:
   #     - .env

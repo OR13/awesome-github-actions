@@ -7,9 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Stack
         run: docker-compose up -d
-      - name: Get Ganache Addresses
+      - name: Wait for Ganache
         run: docker run --network container:ganache appropriate/curl -s --retry 10 --retry-connrefused -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545 | jq '.'
-      - name: Get IPFS ID
+      - name: Wait for IPFS
         run: docker run --network container:ipfs appropriate/curl -s --retry 10 --retry-connrefused -X GET http://127.0.0.1:5001/api/v0/id | jq '.'
-      - name: Check again later...
-        run: curl -s --retry 10 --retry-connrefused -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545 | jq '.'
+      - name: Run Tests
+        run: curl -s -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545 | jq '.'
+        run: curl -s --retry 10 --retry-connrefused -X GET http://127.0.0.1:5001/api/v0/id | jq '.'

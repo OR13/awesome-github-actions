@@ -7,13 +7,9 @@ services:
     image: trufflesuite/ganache-cli:latest
     ports:
       - "8545:8545"
-    volumes:
-      - ./ganache_data:/ganache_data
     entrypoint:
       - node
       - /app/ganache-core.docker.cli.js
-      - --deterministic
-      - --db=/ganache_data
   # ipfs:
   #   env_file:
   #     - .env

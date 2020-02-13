@@ -1,11 +1,11 @@
 name: Docker Compose CI
 on: push
 jobs:
-  test:
+  docker-ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Setup Stack
         run: docker-compose up -d
       - name: Get Ganache Addresses
-        run: docker run --network container:ganache appropriate/curl -s --retry 10 --retry-connrefused -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545 | jq
+        run: docker run --network container:ganache appropriate/curl -s --retry 10 --retry-connrefused -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":0}' http://127.0.0.1:8545 | jq '.'

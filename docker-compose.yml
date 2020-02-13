@@ -15,7 +15,7 @@ services:
       - --deterministic
       - --db=/ganache_data
       - --mnemonic
-      - "$MNEMONIC"
+      - "minimum symptom minute gloom tragic situate silver mechanic salad amused elite beef"
       - --networkId
       - "5777"
       - --hostname

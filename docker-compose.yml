@@ -10,6 +10,8 @@ services:
     entrypoint:
       - node
       - /app/ganache-core.docker.cli.js
+      - --mnemonic
+      - "minimum symptom minute gloom tragic situate silver mechanic salad amused elite beef"
   # ipfs:
   #   env_file:
   #     - .env

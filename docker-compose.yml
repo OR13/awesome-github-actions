@@ -11,7 +11,7 @@ services:
       - node
       - /app/ganache-core.docker.cli.js
       - --mnemonic
-      - "minimum symptom minute gloom tragic situate silver mechanic salad amused elite beef"
+      - "$MNEMONIC"
   # ipfs:
   #   env_file:
   #     - .env
